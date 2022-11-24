@@ -3,12 +3,17 @@
   "hostRequirements": {
     "cpus": 4
   },
-  "waitFor": "onCreateCommand",
-  "updateContentCommand": "pip install -r requirements.txt && python manage.py migrate",
-  "postCreateCommand": "",
-  "postAttachCommand": {
-    "server": "python manage.py runserver"
+  "features": {
+      "ghcr.io/devcontainers/features/git:1": {},
+      "ghcr.io/devcontainers/features/sshd:1": {},
+      "ghcr.io/devcontainers/features/python:1": {},
+      "ghcr.io/devcontainers-contrib/features/black:1": {},
+      "ghcr.io/devcontainers-contrib/features/pipenv:1": {},
+      "ghcr.io/devcontainers-contrib/features/pylint:1": {}
   },
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "pip install -r requirements.txt",
+  "postCreateCommand": "",
   "customizations": {
     "codespaces": {
       "openFiles": [
@@ -17,7 +22,14 @@
     },
     "vscode": {
       "extensions": [
-        "ms-python.python"
+        "ms-python.python",
+        "donjayamanne.python-environment-manager",
+        "christian-kohler.path-intellisense",
+        "batisteo.vscode-django",
+        "bibhasdn.django-snippets",
+        "PKief.material-icon-theme",
+        "oderwat.indent-rainbow",
+        "ms-python.vscode-pylance",
       ]
     }
   },
